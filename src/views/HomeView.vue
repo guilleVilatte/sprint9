@@ -1,16 +1,7 @@
 <template>
   <div class="home">
-    <Pokemons></Pokemons>
+    Presentacion
   </div>
 </template>
 
-<script>
-import Pokemons from '@/components/Pokemons.vue'
 
-export default {
-  name: 'HomeView',
-  components: {
-    Pokemons,
-}
-}
-</script>

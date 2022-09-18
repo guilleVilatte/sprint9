@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="pokedex">
     <Pokemons></Pokemons>
   </div>
 </template>
@@ -8,7 +8,7 @@
   import Pokemons from '@/components/Pokemons.vue'
   
   export default {
-    name: 'HomeView',
+    name: 'PokedexView',
     components: {
       Pokemons,
   }

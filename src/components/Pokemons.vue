@@ -1,13 +1,13 @@
 <template>
     <div class = "row d-flex justify-content-center">
         <div class="card col-3 mx-5 my-4" v-for="(pokemon, i) in pokemons" :key="i">
-            <router-link :to="{ name: 'details', params: { id: (pokemon.url).slice(-4).replace(/[^0-9]/g, ''), urlPokemon: pokemon.url } }" style="text-decoration:none; color: black;">
+            <router-link :to="{ name: 'details', query: { id: (pokemon.url).slice(-4).replace(/[^0-9]/g, ''), urlPokemon: pokemon.url } }" style="text-decoration:none; color: black;">
                 <div class="caja">
                     <img class="img-fluid" :src= "'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + (pokemon.url).slice(-4).replace(/[^0-9]/g, '') +'.png'" alt="">
                 </div>
                 <div class="text-start ms-2 ">
                     <h6 class="fw-bolder text-muted">Nº {{ (pokemon.url).slice(-4).replace(/[^0-9]/g, '') }}</h6>
-                    <h5 class="fw-bolder mt-3">{{ pokemon.name.toUpperCase() }}</h5>
+                    <h5 class="fw-bolder mt-3">{{ pokemon.name[0].toUpperCase() + pokemon.name.slice(1) }}</h5>
                 </div>
             </router-link>
         </div>

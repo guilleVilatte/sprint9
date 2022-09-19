@@ -10,9 +10,6 @@ export default createStore({
   getters: {
     getNext(state) {
       return (state.init += 15)
-    },
-    getPokemon(state) {
-      return (state.pokemon)
     }
   },
   mutations: {
@@ -39,8 +36,8 @@ export default createStore({
       const morePokes = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${init}&limit=15`).then(response => response.data.results)
       commit('morePokes', morePokes)
     },
-    async getPoke({ commit }, url) {
-      const poke = await axios.get(url).then(response => response.data)
+    async getPoke({ commit }, id) {
+      const poke = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`).then(response => response.data)
       commit('getOnePoke', poke)
     },
   },

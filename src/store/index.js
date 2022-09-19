@@ -10,6 +10,9 @@ export default createStore({
   getters: {
     getNext(state) {
       return (state.init += 15)
+    },
+    getPokemon(state) {
+      return (state.pokemon)
     }
   },
   mutations: {
@@ -25,7 +28,6 @@ export default createStore({
     },
     getOnePoke: (state, poke) => {
       state.pokemon = poke
-      console.log(poke)
     }
   },
   actions: {
@@ -40,7 +42,6 @@ export default createStore({
     async getPoke({ commit }, url) {
       const poke = await axios.get(url).then(response => response.data)
       commit('getOnePoke', poke)
-      console.log(poke)
     },
   },
   modules: {

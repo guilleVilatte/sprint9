@@ -4,28 +4,34 @@
         <div class="col-5 caja me-5">
             <img :src="url + routeID + '.png'" class="img-fluid" alt="" v-if="url + routeID + '.png'">
         </div>
-        <div class="col-5 caja2">
-          <h2 class="col-12 my-5">{{ pokemon.forms[0].name[0].toUpperCase() + pokemon.forms[0].name.slice(1) }} Nº {{ routeID }}</h2>
-          <div class="col-6 d-flex flex-column justify-content-start">
+        <div class="col-5">
+        <div class="caja2 fw-bolder">
+          <h2 class="col-12 py-3">{{ name[0].toUpperCase() + name.slice(1) }} Nº {{ routeID }}</h2>
+          <div class="col-6 text-start ms-4">
             <div class="col-6">
-              <p class="fw-bolder text-white"> Altura </p>
+              <p class=""> Altura </p>
             </div>
             <div class="col-6 fs-5">
-              <p class="fw-bolder text-black"> {{ pokemon.height }} dm </p>
+              <p class=""> {{ pokemon.height }} dm </p>
             </div>
             <div class="col-6">
-              <p class="fw-bolder text-muted"> Peso </p>
+              <p class=""> Peso </p>
             </div>
             <div class="col-6">
-              <p class="fw-bolder text-muted"> {{ pokemon.weight}} </p>
-            </div>
-            <div class="">
-                
-            </div>
-            <div class="">
-                
+              <p class=""> {{ pokemon.weight}} </p>
             </div>
           </div>
+        </div>
+        <div>
+            <div class="">
+              <p class=""> Tipos </p>
+            </div>
+            <div class="d-flex">
+              <div v-for="(type, i) in pokemon.types" :key="i" class="me-3">
+                <p class="tipo">{{ type.type.name }}</p>
+              </div>
+            </div>
+        </div>
         </div>
       </div>
     </div>
@@ -40,17 +46,19 @@
           return {
               url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/",
               routeID: null,
-              routeURLPoke: null
+              routeURLPoke: null,
+              name: null,
           };
       },
       created() {
+          this.name = this.$route.query.name
           this.routeID = this.$route.query.id
           this.routeURLPoke = this.$route.query.urlPokemon
           this.$store.dispatch("getPoke", this.routeURLPoke)
       },
       computed: {
-          ...mapState(["pokemon"])
-      },
+          ...mapState('pokemon')
+      }
   }
   </script>
 
@@ -62,5 +70,6 @@
     .caja2{
         background: rgb(50, 161, 205);
         border-radius: 10px;
+        color: white;
     }
   </style>

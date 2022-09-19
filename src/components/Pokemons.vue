@@ -1,7 +1,7 @@
 <template>
     <div class = "row d-flex justify-content-center">
         <div class="card col-3 mx-5 my-4" v-for="(pokemon, i) in pokemons" :key="i">
-            <router-link :to="{ name: 'details', query: { id: (pokemon.url).slice(-4).replace(/[^0-9]/g, ''), urlPokemon: pokemon.url } }" style="text-decoration:none; color: black;">
+            <router-link :to="{ name: 'details', query: { id: (pokemon.url).slice(-4).replace(/[^0-9]/g, ''), name: pokemon.name, urlPokemon: pokemon.url } }" style="text-decoration:none; color: black;">
                 <div class="caja">
                     <img class="img-fluid" :src= "'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + (pokemon.url).slice(-4).replace(/[^0-9]/g, '') +'.png'" alt="">
                 </div>

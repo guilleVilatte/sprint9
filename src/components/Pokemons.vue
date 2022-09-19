@@ -1,8 +1,8 @@
 <template>
-    <div class = "row d-flex justify-content-center">
-        <div class="card col-3 mx-5 my-4" v-for="(pokemon, i) in pokemons" :key="i">
+    <div class = "row d-flex justify-content-center m-0">
+        <div class="card col-8 col-sm-5 col-lg-3 mx-5 my-4" v-for="(pokemon, i) in pokemons" :key="i">
             <router-link :to="{ name: 'details', query: { id: (pokemon.url).slice(-4).replace(/[^0-9]/g, ''), name: pokemon.name, urlPokemon: pokemon.url } }" style="text-decoration:none; color: black;">
-                <div class="caja">
+                <div>
                     <img class="img-fluid" :src= "'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + (pokemon.url).slice(-4).replace(/[^0-9]/g, '') +'.png'" alt="">
                 </div>
                 <div class="text-start ms-2 ">
@@ -37,15 +37,20 @@ export default {
 <style scoped>
     .card{
         border: none;
+        background: rgb(231, 231, 130);
+        border-radius: 15px;
     }
-    .caja{
-        background: rgb(230, 223, 223);
-        border-radius: 10px;
+    .card:hover{
+        background: white;
     }
     .btn{
         height: 50px;
         width: 200px;
         background: rgb(223, 223, 98);
         color: white;
+    }
+    .btn:hover{
+        background: white;
+        color: rgb(223, 223, 98);
     }
 </style>

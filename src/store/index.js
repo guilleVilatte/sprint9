@@ -6,6 +6,9 @@ export default createStore({
     pokemons: [],
     pokemon: {},
     init: 0,
+    showModalLog: false,
+    showModalReg: false,
+    showBurgerModal: false
   },
   getters: {
     getNext(state) {
@@ -25,6 +28,25 @@ export default createStore({
     },
     getOnePoke: (state, poke) => {
       state.pokemon = poke
+    },
+    restartingInit: (state) => {
+      state.init = 0
+    },
+    viewLogin: (state) => {
+      state.showModalLog = true
+    },
+    viewRegister: (state) => {
+      state.showModalReg = true
+    },
+    closeModal: (state) => {
+      state.showModalLog = false
+      state.showModalReg = false
+    },
+    closeModalBurger: (state) => {
+      state.showBurgerModal = false
+    },
+    mostrarBurgerModal: (state) => {
+      state.showBurgerModal = true
     }
   },
   actions: {

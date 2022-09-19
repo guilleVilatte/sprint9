@@ -5,7 +5,7 @@
         <p class="p-3 fs-5 fw-bolder" >Pokedex</p>
         <img class="img-fluid" src="@/../public/pokemon-first-generation-pokemon-wallpaper-preview.jpg" alt="">
       </div>
-    </router-link>
+    </router-link>  
   </div>
 </template>
 

@@ -8,7 +8,7 @@
     </nav>
     <img class="img-fluid img" src="@/../public/TituloUniversoPokémon.png" alt="">
     <nav class="fs-6 fs-lg-5">
-      <router-link class="me-4" to="/">Home</router-link>
+      <router-link @click="reiniciarInit()" class="me-4" to="/">Home</router-link>
       <router-link to="/pokedex">Pokedex</router-link>
     </nav>
     <router-view />
@@ -37,6 +37,9 @@ export default {
     viewBurgerModal() {
       this.$store.commit("mostrarBurgerModal");
     },
+    reiniciarInit() {
+      this.$store.commit('restartingInit')
+    }
   },
   components: { LogIn, Register, BurgerModal }
 }
@@ -51,6 +54,7 @@ export default {
 .burger:hover {
   background-image: url('../../public/bars-staggered-blanco.svg');
 }
+
 .icon {
   margin-left: 15px;
   background-attachment: cover;
@@ -59,6 +63,7 @@ export default {
   height: 26px;
   width: 30px;
 }
+
 .img {
   width: 50%;
   animation: mover 2s ease-in;
